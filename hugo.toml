@@ -1,0 +1,32 @@
+theme = "hugo-bearcub"
+
+baseURL = "https://ystepanoff.net/"
+title = "Dr Yegor Stepanov's homepage"
+copyright = "Yegor Stepanov (CC BY 4.0)"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+
+
+[languages]
+    [languages.en]
+        [languages.en.params]
+            madeWith = "Made with [Hugo](https://gohugo.io) and [Bear Cub](https://github.com/clente/hugo-bearcub)"
+
+
+[markup]
+    [markup.highlight]
+        lineNos = true
+        lineNumbersInTable = false
+        noClasses = false
+
+
+[params]
+    description = "Dr Yegor Stepanov's homepage"
+    title = "Dr Yegor Stepanov"
+    dateformat = "2006-01-02"
+    themeStyle = "original"
+    generateSocialCard = true
+
+    [params.author]
+        name = "Yegor Stepanov"
+        email = "ystepanoff@icloud.com"
