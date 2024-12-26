@@ -13,3 +13,18 @@
     margin-right: auto;
     text-align: center;
 }
+
+.iconLink {
+    color: #eee;
+    text-decoration: none;
+}
+
+.hi-svg-inline {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.hi-svg-inline:hover {
+    transform: scale(1.2);
+    fill:   #8cc2dd;
+}
