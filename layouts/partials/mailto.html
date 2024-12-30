@@ -1,0 +1,26 @@
+<script>
+    function scr(s) {
+        return btoa(s
+            .split('')
+            .reverse()
+            .join('')
+            .split('')
+            .map(char => String.fromCharCode(char.charCodeAt(0) + 13))
+            .join(''));
+    }
+    function unscr(s) {
+        return atob(s)
+            .split('')
+            .map(char => String.fromCharCode(char.charCodeAt(0) - 13))
+            .join('')
+            .split('')
+            .reverse()
+            .join('');
+    }
+    (function() {
+        const scrambled = "{{ .scrambled }}";
+        const email = unscr(scrambled);
+        const el = document.getElementById("atLink");
+        el.href = "mailto:" + email;
+    })();
+</script>
