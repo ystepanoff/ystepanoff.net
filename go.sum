@@ -2,7 +2,5 @@ github.com/hugomods/icons v0.6.6 h1:gGlafcBDRP7sSID+tgLcWdog+s/QBj8DIfU+h9tZj1U=
 github.com/hugomods/icons v0.6.6/go.mod h1:cIkSvK6W0q6N4U6n9KGz+QfRWQXAW0INd+1P31gPNGg=
 github.com/hugomods/icons/vendors/font-awesome v0.6.12 h1:I8ckJFuxr8mD8bJ4NX9NrmnHd3f6XvITuD2ME8a9wXc=
 github.com/hugomods/icons/vendors/font-awesome v0.6.12/go.mod h1:6YBo/5GaNpAocKwnKNWcd9xkliiRJXmwz2mstY5lr9I=
-github.com/ystepanoff/hugo-neko v0.0.0-20250106084312-757a11b00526 h1:6KdB1yGSQYhsEJd33fgCEaS9Zbe0rfG9nWoB4KsHL60=
-github.com/ystepanoff/hugo-neko v0.0.0-20250106084312-757a11b00526/go.mod h1:1walgyMiIrU8IKHJ7JAHqZ/iM1Anqxv9lWaf5Clck8k=
 github.com/ystepanoff/hugo-neko v1.0.1 h1:PZwBQb+CoE6Ou8wF5z9FJ5xG8paWlRN+ykVS5YlCHLw=
 github.com/ystepanoff/hugo-neko v1.0.1/go.mod h1:1walgyMiIrU8IKHJ7JAHqZ/iM1Anqxv9lWaf5Clck8k=

@@ -5,6 +5,7 @@ title = "Dr Yegor Stepanov's homepage"
 copyright = "Yegor Stepanov (CC BY 4.0)"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
+sectionPagesMenu = "main"
 
 
 [languages]
