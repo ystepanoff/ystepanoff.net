@@ -1,0 +1,3 @@
+{{- $imagePath := .Get "path" -}} {{- $altText := .Get "alt" | default "Image" -}}
+{{- $image := resources.Get $imagePath -}}
+<img src="{{ $image.Permalink }}" alt="{{ $altText }}" />
