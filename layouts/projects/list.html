@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="block">
+  Here’s a collection of some of the stuff I’ve worked on—not everything is tech-related. If something piques your
+  interest and you’d like to dive deeper or even collaborate, don’t hesitate to reach out to me on Discord!
+</div>
+
+<div class="projects-list">
+  {{ range .Pages }}
+  <div class="project-item">
+    <a href="{{ .Permalink }}">
+      <img src="{{ .Params.image }}" alt="{{ .Title }}" width="150" />
+      <p>{{ .Title }}</p>
+    </a>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
