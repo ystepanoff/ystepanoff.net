@@ -8,7 +8,8 @@
   <div class="projects-list">
     {{ range .Pages.ByWeight.Reverse }}
     <div class="project-item">
-      <img class="project-image" src="{{ .Params.image }}" alt="{{ .Title }}" />
+      {{ $img := resources.Get .Params.image }}
+      <img class="project-image" src="{{ $img.Permalink }}" alt="{{ .Title }}" />
       <div class="project-content">
         {{ if .Param "href" }}
         <h3><a href="{{ .Params.href }}" target="_blank">{{ .Title }}</a></h3>
