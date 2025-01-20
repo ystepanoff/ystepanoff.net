@@ -6,11 +6,15 @@
 
 <section class="projects-section">
   <div class="projects-list">
-    {{ range .Pages }}
+    {{ range .Pages.ByWeight.Reverse }}
     <div class="project-item">
       <img class="project-image" src="{{ .Params.image }}" alt="{{ .Title }}" />
       <div class="project-content">
+        {{ if .Param "href" }}
+        <h3><a href="{{ .Params.href }}" target="_blank">{{ .Title }}</a></h3>
+        {{ else }}
         <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ end }}
         <p>{{ .Description }}</p>
       </div>
     </div>
