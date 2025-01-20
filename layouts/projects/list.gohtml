@@ -9,6 +9,7 @@
     {{ range .Pages.ByWeight.Reverse }}
     <div class="project-item">
       {{ $img := resources.Get .Params.image }}
+      {{ $img = $img.Crop "800x600" }}
       <img class="project-image" src="{{ $img.Permalink }}" alt="{{ .Title }}" />
       <div class="project-content">
         {{ if .Param "href" }}
