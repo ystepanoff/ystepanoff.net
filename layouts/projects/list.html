@@ -4,14 +4,17 @@
   interest and you’d like to dive deeper or even collaborate, don’t hesitate to reach out to me on Discord!
 </div>
 
-<div class="projects-list">
-  {{ range .Pages }}
-  <div class="project-item">
-    <a href="{{ .Permalink }}">
-      <img src="{{ .Params.image }}" alt="{{ .Title }}" width="150" />
-      <p>{{ .Title }}</p>
-    </a>
+<section class="projects-section">
+  <div class="projects-list">
+    {{ range .Pages }}
+    <div class="project-item">
+      <img class="project-image" src="{{ .Params.image }}" alt="{{ .Title }}" />
+      <div class="project-content">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description }}</p>
+      </div>
+    </div>
+    {{ end }}
   </div>
-  {{ end }}
-</div>
+</section>
 {{ end }}
