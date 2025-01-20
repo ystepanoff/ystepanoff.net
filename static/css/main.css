@@ -38,3 +38,58 @@ p {
   transform: scale(1.2);
   fill: #8cc2dd;
 }
+
+.projects-section {
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.project-image {
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.project-content {
+  flex: 1;
+}
+
+.project-content h2 {
+  margin: 0 0 0.5rem;
+}
+
+.project-content h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .project-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-image {
+    width: 100%;
+    max-width: 300px;
+  }
+}
