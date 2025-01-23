@@ -58,9 +58,11 @@ p {
 }
 
 .project-image {
-  width: 200px;
+  width: 150px;
   height: auto;
-  border-radius: 4px;
+  border-radius: 5px;
+  border: 2px solid;
+  border-color: #454545;
   object-fit: cover;
 }
 
