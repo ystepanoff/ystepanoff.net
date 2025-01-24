@@ -90,3 +90,33 @@ p {
     max-width: 300px;
   }
 }
+
+pre[class*="language-"],
+code[class*="language-"] {
+  background: #f6f8fa;
+  color: #24292e;
+  font-family:
+    SFMono-Regular,
+    Consolas,
+    Liberation Mono,
+    Menlo,
+    monospace;
+  font-size: 85%;
+  line-height: 1.45;
+  border-radius: 6px;
+  padding: 1em;
+  overflow-x: auto;
+  tab-size: 4;
+}
+
+pre::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+pre::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+pre::-webkit-scrollbar-track {
+  background: #f6f8fa;
+}

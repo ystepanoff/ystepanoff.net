@@ -15,7 +15,12 @@ weight = 3
     Here I wrote down some notes about simple maths under the hood of ParaGopher.
   </p>
 
-  <h4>Rotating and drawing the turret barrel<h4>
+  <h4>Rotating and drawing the turret barrel</h4>
+  When drawing the turret barrel, the code rotates it around its center before positioning it on the screen:
+
+  <pre><code>op.GeoM.Translate(-barrelW/2.0, -barrelH/2.0) // Move the barrel origin to its center
+op.GeoM.Rotate(g.barrelAngle * math.Pi / 180)
+op.GeoM.Translate(centerX, centerY)</code></pre>
   <h4>Finding the bullet's spawn position (tip of the barrel)</h4>
   <h4>Computing bullet's velocity components</h4>
   <h4>Updating bullet's position (basic kinematics)</h4>
