@@ -8,12 +8,13 @@ weight = 3
 <div class="block">
   <h3>ParaGopher</h3>
 
-  {{< img "/projects/images/ParaGopher.png" >}} I played
+  {{< img path="/projects/images/ParaGopher.png" alt="ParaGopher" >}} I played
   <a href="https://www.retrogames.cz/play_616-DOS.php" target="_blank">Paratrooper</a> a ton back when I was a kid, and
   stumbling across <a href="https://ebitengine.org" target="_blank">Ebitengine</a>—a super straightforward 2D game
-  engine—brought all those memories rushing back. So I went ahead and made my own nostalgia-fueled version, and it only
-  took a couple of hours to get a basic prototype going! Now I’ve jotted down a few notes on the simple maths behind
-  ParaGopher for anyone curious.
+  engine—brought all those memories rushing back. So I went ahead and made my own nostalgia-fueled
+  <a href="https://github.com/ystepanoff/ParaGopher" target="_blank">version</a>, and it only took a couple of hours to
+  get a basic prototype going! Now I’ve jotted down a few notes on the simple maths behind ParaGopher for anyone
+  curious.
 
   <h4>Rotating and drawing the turret barrel</h4>
   When drawing the turret barrel, the code rotates it around its center before positioning it on the screen:
@@ -401,5 +402,6 @@ b.y += b.vy</code></pre>
   <h4>Collision checks</h4>
 
   The code for detecting collisions just checks if the two rectangles—one around the bullet, one around the
-  target—overlap. If they do, the bullet is marked as hitting the target.
+  target—overlap. If they do, the bullet is marked as hitting the target. That’s pretty much the whole idea—after that,
+  it’s just pressing buttons with your fingers!
 </div>
