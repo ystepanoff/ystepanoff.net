@@ -1,2 +1,20 @@
 <link href="/css/main.css" rel="stylesheet" />
-<link href="/css/katex.min.css" rel="stylesheet" />
+<script>
+  window.MathJax = {
+    loader: { load: ["input/tex", "output/svg"] },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="/js/tex-svg.js"></script>
