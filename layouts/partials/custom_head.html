@@ -1,8 +1,9 @@
 <link href="/css/main.css" rel="stylesheet" />
 <script>
   window.MathJax = {
-    loader: { load: ["input/tex", "output/svg"] },
+    loader: { load: ["input/tex", "output/svg", "[tex]/tagformat"] },
     tex: {
+      packages: { "[+]": ["tagformat"] },
       inlineMath: [
         ["$", "$"],
         ["\\(", "\\)"],
@@ -11,6 +12,13 @@
         ["$$", "$$"],
         ["\\[", "\\]"],
       ],
+      processRefs: true,
+      tags: "ams",
+      useLabelIds: true,
+      tagformat: {
+        number: (n) => n.toString(),
+        id: (tag) => "eqn-id:" + tag,
+      },
     },
     svg: {
       fontCache: "global",

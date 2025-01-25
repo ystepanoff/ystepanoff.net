@@ -81,6 +81,12 @@ p {
   margin-bottom: 10px;
 }
 
+.proof:before {
+  font-weight: bold;
+  font-style: normal;
+  content: "Proof. ";
+}
+
 .right {
   float: right;
 }

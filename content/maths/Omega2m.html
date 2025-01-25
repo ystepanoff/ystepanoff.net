@@ -7,14 +7,14 @@ hideReply = true
 +++
 
 $\def\cn{\mathord{{\;\!{:}\;\!}}}$ $\newcommand{\T}{\top}$ $\newcommand{\GO}{\mathrm{GO}}$
-$\newcommand{\II}{\mathrm{I}}$ $\newcommand{\rank}{\mathrm{rank}}$
+$\newcommand{\II}{\mathrm{I}}$ $\newcommand{\rank}{\mathrm{rank}}$ $\newcommand{\Orb}{\mathcal{O}}$
 
 <p
   >Let $V$ be a vector space over a field $F$ of dimension $n$. We assume that there is a non-singular quadratic form
   $Q$ defined on $V$. Denote by $\mathrm{GO}_n(F,Q)$ the group of non-singular linear transformations that preserve the
   form $Q$. In case of characteristic $2$ we define the <i>quasideterminant</i> $\mathrm{qdet}:\mathrm{GO}_n(F,Q)
-  \rightarrow \mathbb{F}_2$ to be the map \begin{equation} \operatorname{qdet}: g \mapsto \dim_F (
-  \mathrm{im}(\mathrm{I} - g) )\ \operatorname{mod}\ 2. \end{equation} Further, the group $\mathrm{SO}_n(F,Q)$ is the
+  \rightarrow \mathbb{F}_2$ to be the map \begin{equation*} \operatorname{qdet}: g \mapsto \dim_F (
+  \mathrm{im}(\mathrm{I} - g) )\ \operatorname{mod}\ 2. \end{equation*} Further, the group $\mathrm{SO}_n(F,Q)$ is the
   kernel of the (quasi)determinant map. Define the <i>spinor norm</i> to be the homomorphism $\mathrm{sp} :
   \mathrm{SO}_n(F,Q) \rightarrow F^{\times} / (F^{\times})^2$. This homomorphism is defined in the following way. Any
   element of $\mathrm{SO}_n(F,Q)$ arising as a reflexion in $v$ for some $v \in V$ is sent to the value $Q(v)$ modulo
@@ -22,8 +22,8 @@ $\newcommand{\II}{\mathrm{I}}$ $\newcommand{\rank}{\mathrm{rank}}$
   is defined as the kernel of spinor norm. If the characteristic of the field is not $2$, then there exists a double
   cover of $\Omega_n(F,Q)$, denoted as $\mathrm{Spin}_n(F,Q)$. If $n = 2m$, $K:F$ is a quadratic Galois extension with
   $\sigma$ being the nontrivial field automorphism fixing $F$ pointwise, and a maximal totally isotropic subspace of $V$
-  has dimension $m-1$, so that $V$ can be written as a direct sum \begin{equation} V = \langle e_1, f_1 \rangle \oplus
-  \ldots \oplus \langle e_{m-1}, f_{m-1} \rangle \oplus W_2, \end{equation} where $(e_1,f_1),\ldots,(e_{m-1},f_{m-1})$
+  has dimension $m-1$, so that $V$ can be written as a direct sum \begin{equation*} V = \langle e_1, f_1 \rangle \oplus
+  \ldots \oplus \langle e_{m-1}, f_{m-1} \rangle \oplus W_2, \end{equation*} where $(e_1,f_1),\ldots,(e_{m-1},f_{m-1})$
   are hyperbolic pairs and $W_2 \cong K$ with $Q_{W_2}(\lambda) = \lambda \lambda^{\sigma}$, then we denote the group
   $\Omega_{2m}(F,Q)$ as $\Omega_{2m}^{-,K}(F)$. If $n = 2m$ and the dimension of a maximal totally isotropic subspace of
   $V$ is $m$, then we write $\Omega_{2m}(F,Q)$ as $\Omega_{2m}^+(F)$.</p
@@ -39,7 +39,7 @@ $\newcommand{\II}{\mathrm{I}}$ $\newcommand{\rank}{\mathrm{rank}}$
 
 <div class="lemma">
   The stabiliser in $\Omega_{2m+2}(F,Q)$ of the isotropic vector $v_1$ is a subgroup of shape $W\cn\Omega_{2m}(F,Q_W)$,
-  and the stabiliser of the pair $(v_1,v_2)$ is a subgroup $\Omega_{2m}(F,Q_W)$.
+  and the stabiliser of the pair $(v_1,v_2)$ is a subgroup $\Omega_{2m}(F,Q_W)$. $\tag{stabiliser_omega}$
 </div>
 
 <div class="proof">
@@ -112,4 +112,106 @@ $\newcommand{\II}{\mathrm{I}}$ $\newcommand{\rank}{\mathrm{rank}}$
   \begin{equation*} \left[ \begin{array}{c|c|c} 1 & 0 & 0 \\ \hline & & \\ 0 &\ \ \ \ \ A\ \ \ \ \ & 0 \\ & & \\ \hline
   0 & 0 & 1 \end{array} \right], \end{equation*} so the stabiliser of the pair $(v_1,v_2)$ is $\Omega_{2m}(F,Q)$.
   <div class="right">$\Box$</div>
+</div>
+
+<p
+  ><a href="https://en.wikipedia.org/wiki/Witt%27s_theorem" target="_blank">Witt's lemma</a> tells us that the group
+  $\GO_{2m}(F,Q)$ acts transitively on the non-zero vectors of each norm. The following result allows us to use the fact
+  that the same is true for $\Omega_{2m}(F,Q)$ in case when Q is of Witt index at least $1$.
+</p>
+
+<div class="lemma">
+  The group $\Omega_{2m+2}(F,Q)$, where $Q$ is of Witt index at least $2$, acts transitively on \begin{equation*}
+  O_{\lambda} = \left\{ \ v \in V\ \big|\ Q(v) = \lambda,\ v \neq 0 \ \right\} \end{equation*} for each value of
+  $\lambda \in F$.
+</div>
+
+<div class="proof">
+  Suppose $u, v \in O_{\lambda}$. Since by Witt's lemma $\GO_{2m+2}(F,Q)$ acts transitively on $O_{\lambda}$, there is
+  an element $g \in \GO_{2m+2}(F,Q)$ which sends $u$ to $v$. Consider a basis for our vector space $V$, $\mathcal{B} =
+  \{v_1, w_1, \ldots, w_{2m-2}, v_1\}$, such that as before $(v_1,v_2)$ is a hyperbolic pair and $u \in \langle v_1, v_2
+  \rangle$, and so $V = \langle v_1 \rangle \oplus \langle w_1, \ldots, w_{2m-2} \rangle \oplus \langle v_2 \rangle$.
+  Suppose $h$ is an element in the stabiliser of $(v_1,v_2)$. As a consequence, $h$ stabilises $u$ and with respect to
+  $\mathcal{B}$ it has the form \begin{equation*} [h]_{\mathcal{B}} = \left[ \begin{array}{c|c|c} 1 & 0 & 0 \\ \hline &
+  & \\ 0 &\ \ \ \ \ A\ \ \ \ \ & 0 \\ & & \\ \hline 0 & 0 & 1 \end{array} \right], \end{equation*} where the matrix $A$
+  acts on $W=\langle w_1, \ldots, w_{2m-2} \rangle$ as an element of $\GO_{2m}(W,Q_W)$. If the determinant of $g$ is
+  $1$, then we may take \begin{equation*} A = \begin{bmatrix} \mu & 0 & 0 & \cdots & 0 \\ 0 & \mu^{-1} & 0 & \cdots & 0
+  \\ 0 & 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{bmatrix},
+  \end{equation*} where $\mu \in F$. On the other hand, if $\det(g) = -1$, then we take \begin{equation*} A =
+  \begin{bmatrix} 0 & \mu^{-1} & 0 & \cdots & 0 \\ \mu & 0 & 0 & \cdots & 0 \\ 0 & 0 & 1 & \cdots & 0 \\ \vdots & \vdots
+  & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{bmatrix} \end{equation*} instead, so we can always get
+  $\det(hg) = 1$. Note that the latter choice of $A$ also adjusts the quasideterminant in characteristic $2$ as the rank
+  of $\II-[h]_{\mathcal{B}}$ in this case is odd. Finally, choosing $\mu$ accordingly we can ensure that the spinor norm
+  of $hg$ is $1$, i.e. $hg \in \Omega_{2m+2}(F,Q)$. <div class="right">$\Box$</div>
+</div>
+
+<div class="theorem">
+  Let $Q_W$ be of Witt index at least $1$. The subgroup $\Omega_{2m}(F,Q_W)$ is maximal in $W\cn\Omega_{2m}(F,Q_W)$.
+</div>
+
+<div class="proof">
+  Recall that $v_2 \in V$ is mapped under the action of $\mathcal{G} = W\cn\Omega_{2m}(F,Q_W)$ to a vector of the form
+  $[-Q_W(u) \mid u \mid 1]$, where $u$ is an element of $W$. Since the stabiliser of $v_2$ in $\mathcal{G}$ is
+  $\Omega_{2m}(F,Q_W)$, we conclude that the orbit of $v_2$ under the action of $\mathcal{G}$ is the following set:
+  \begin{equation*} \Orb_{\mathcal{G}}(v_2) = \left\{\ \left[ -Q_W(u) \mid u \mid 1 \right]\ \big|\ u \in W \ \right\}.
+  \end{equation*} Since the elements of this orbit are in one-to-one correspondence with the cosets of
+  $\Omega_{2m}(F,Q_W)$ in $\mathcal{G}$, it is enough to show the primitive action on $\Orb_{\mathcal{G}}(v_2)$.
+  Consider the action of $\mathcal{G}$ on $\Orb_{\mathcal{G}}(v_2)$. A general element in $\mathcal{G}$ acts on the
+  elements of $\Orb_{\mathcal{G}}(v_2)$ in the following way: \begin{multline*} [ -Q_W(u) \mid u \mid 1 ] \ \mapsto \ [
+  -Q_W(u) - uABv^\T - Q(v) \mid uA + v \mid 1] = \\ = [-Q_W(uA + v) \mid uA + v \mid 1]. \end{multline*} Note that
+  $uABv^\T = f_W( uA, v )$. We see that this action is isomorphic to the action on $W$ defined by $u \mapsto uA + v$,
+  where $u,v \in W$. In case when $A$ is the identity matrix, this map is a translation. On the other hand, taking $v =
+  0$, we obtain the action of $\Omega_{2m}(F,Q_W)$. Denote the group generated by the described action on $W$ as
+  $\mathrm{A\Omega}_{2m}(F,Q_W)$. Since $Q_W$ is of Witt index at least $1$, we may choose a hyperbolic pair $(u_1,u_2)$
+  in $W$ such that $W = \langle u_1, u_2 \rangle \oplus U$, where $U = \langle u_1, u_2 \rangle^{\perp}$. We aim to show
+  that any $\mathrm{A\Omega}_{2m}(F,Q_W)$-congruence on $W$ is trivial (and hence, the action is primitive). Suppose
+  $w_1 \sim w_2$, where $w_1,w_2 \in W$ and $\sim$ is some congruence relation preserved by
+  $\mathrm{A\Omega}_{2m}(F,Q_W)$. It follows that $w_1 - w_2 \sim 0$, and so we may start with $v \sim 0$ for some $v
+  \in W$. We distinguish two cases. First, if $Q_W(v) = 0$, then since $\Omega_{2m}(F,Q_W)$ acts transitively on
+  isotropic vectors in $W$, we get $u_1 \sim 0$, $u_2 \sim 0$, and also $-\lambda u_2 \sim 0$ for any $\lambda \in F$.
+  Since $\sim$ is a congruence relation, it is transitive and so $u_1 \sim -\lambda u_2$, from which it follows $u_1 +
+  \lambda u_2 \sim 0$. Now, $Q_W(u_1 + \lambda u_2) = \lambda$, and $\lambda$ is an arbitrary field element, so $\sim$
+  is trivial. Next, if $Q_W(v) = \lambda$ for some non-zero $\lambda \in F$, we consider two vectors $w_1 = u_1 +
+  \lambda u_2$ and $w_2 = u_1 + (\lambda - Q_W(u))u_2 + u$ for some $u \in U$. Note that $Q_W(w_1) = Q_W(w_2) =
+  \lambda$, so since $\Omega_{2m}(F,Q_W)$ acts transitively on the vectors of norm $\lambda$, we obtain $w_1 \sim 0$ and
+  $w_2 \sim 0$, from which it immediately follows that $w_1 \sim w_2$, and further $w_1 - w_2 \sim 0$. We find $Q_W(w_1
+  - w_2) = Q_W(u - Q(u)u_2) = Q_W(u)$, so in fact we have $u \sim 0$ for some $u \in U$. From $Q(u_1+u) = Q(u)$ it
+  follows that $u_1 + u \sim 0$, and so by transitivity $u_1+u \sim u$. We subtract $u$ from both sides to obtain $u_1
+  \sim 0$, which is covered by the previous case. <div class="right">$\Box$</div>
+</div>
+
+<p>
+  As we already know, the stabiliser in $\Omega_{2m+2}(F,Q)$ of an isotropic vector $v_1 \in V$ is a subgroup of shape
+  $W\cn\Omega_{2m}(F,Q_W)$. We also find that every proper subgroup of $\Omega_{2m+2}(F,Q)$, containing
+  $W\cn\Omega_{2m}(F,Q_W)$ as a subgroup, stabilises the $1$-space spanned by $v_1$.
+</p>
+
+<div class="theorem">
+  Let $Q_W$ be of Witt index at least $2$. Any subgroup $H$ such that \begin{equation} W\cn\Omega_{2m}(F,Q_W) \leqslant
+  H < \Omega_{2m+2}(F,Q), \end{equation} stabilises the $1$-space $\langle v_1 \rangle$.
+</div>
+
+<div class="proof">
+  Let $G = \Omega_{2m+2}(F,Q)$. We aim to prove that if $v_1 \sim v$ for some $v \in V$, where $\sim$ is any non-trivial
+  $G$-congruence, then $v = \lambda v_1$ for some $\lambda \in F$. For the sake of finding a contradiction, suppose that
+  $v = \lambda v_1 + u + \mu v_2$, where $u + \mu v_2 \neq 0$, i.e. either $u \neq 0$ or $\mu \neq 0$. We distinguish
+  two cases. First, if $\mu = 0$, then $v_1 \sim v$, where $v = \lambda v_1 + u$ with $0\neq u \in W$. We have $0 = Q(v)
+  = Q_W(u)$. Recall that $W\cn \Omega_{2m}(F,Q_W)$ is the stabiliser in $\Omega_{2m+2}(F, Q)$ of $v_1$, so with respect
+  to the familiar basis $\mathcal{B} = \{v_1, w_1 ,\ldots, w_{2m}, v_2\}$, its general element has the form
+  \begin{equation*} [g]_{\mathcal{B}}=\left[ \begin{array}{c|c|c} 1 & 0 & 0\ \\ \hline & & \\ u_2^\T &\ \ \ \ \ A\ \ \ \
+  \ & 0\ \\ & & \\ \hline \nu & u_1 & 1\ \end{array} \right], \end{equation*} where $u_2 = -u_1 BA^{\T}$. Now, $g$ maps
+  $v$ to a vector of the form $v^g = (\lambda + u u_2^{\T}) v_1 + uA$. Since $u u_2^{\T} = -u A B u_1^{\T} = - f_W(u,
+  u_1)$, we get $v^g = (\lambda - f_W(u, u_1))v_1 + uA$. Setting $A = \II_{2m}$, we see that it is possible to send $v$
+  to a vector of the form $\alpha v_1 + u$ for any $\alpha \in F$. On the other hand, taking $u_1 = 0$, we obtain the
+  action on $W = \langle w_1, \ldots, w_{2m} \rangle$ of $\Omega_{2m}(F,Q_W)$, which is transitive on the isotropic
+  vectors in $W$. We have shown that $v_1 \sim v$ for any $v$ of the form $\alpha v_1 + u$ for arbitrary $\alpha \in F$
+  and $0\neq u \in W$. The group $\Omega_{2m+2}(F,Q)$ in its turn is transitive on the isotropic vectors in $V$, so
+  there exists an element $h \in \Omega_{2m+2}(F,Q)$ such that $v_1^h = v_2$ and $v^h \in W \oplus \langle v_2 \rangle$.
+  It follows that $v_2 \sim v^h$ and so, by transitivity of $\sim$ we find that $v_1 \sim v_2$. Finally, it is easy to
+  derive the congruences of the form $v_1 \sim \beta v_1$ and $v_2 \sim \beta v_2$ for any non-zero $\beta \in F$.
+  Indeed, there exists an element $g \in \Omega_{2m+2}(F,Q)$ such that $v_1^g = \beta v_1$ for some non-zero $\beta \in
+  F$. We then have $\beta v_2 \sim \alpha \beta v_1 + u^g$, so $v_1 \sim \beta v_1$. Similarly we obtain $v_2 \sim \beta
+  v_2$ for any non-zero $\beta \in F$, and so $\sim$ is universal, contradiction.
+
+  <p>The case $\mu = 0$ can be established with essentially similar reasoning.<div class="right">$\Box$</div></p>
 </div>
