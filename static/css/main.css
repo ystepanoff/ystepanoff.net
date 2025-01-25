@@ -39,6 +39,52 @@ p {
   fill: #8cc2dd;
 }
 
+.theorem {
+  display: block;
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.theorem:before {
+  content: "Theorem. ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+.theorem[text]:before {
+  content: "Theorem (" attr(text) ") ";
+}
+
+.lemma {
+  display: block;
+  font-style: italic;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.lemma:before {
+  content: "Lemma. ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+.lemma[text]:before {
+  content: "Lemma (" attr(text) ") ";
+}
+
+.proof {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.right {
+  float: right;
+}
+
 .projects-section {
   margin: 2rem auto;
   max-width: 800px;
