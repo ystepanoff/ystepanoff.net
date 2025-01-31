@@ -172,3 +172,15 @@ pre::-webkit-scrollbar-thumb {
 pre::-webkit-scrollbar-track {
   background: #f6f8fa;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul.blog-posts li a:visited {
+  color: #8cc2dd;
+}
