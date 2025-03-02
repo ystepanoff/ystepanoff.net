@@ -1,0 +1,70 @@
++++
+date = "2025-01-31"
+title = "ParaGopher: retro-style game in Go"
+description = "ParaGopher: a retro-style arcade game written in Go"
+weight = 2
+hideReply = true
++++
+
+<div class="block">
+  {{< img path="/projects/images/ParaGopher.png" alt="ParaGopher" >}} I played
+  <a href="https://www.retrogames.cz/play_616-DOS.php" target="_blank">Paratrooper</a> a ton back when I was a kid, and
+  stumbling across <a href="https://ebitengine.org" target="_blank">Ebitengine</a>—a super straightforward 2D game
+  engine—brought all those memories rushing back. So I went ahead and made my own nostalgia-fueled
+  <a href="https://github.com/ystepanoff/ParaGopher" target="_blank">version</a>, and it only took a couple of hours to
+  get a basic prototype going! Now I’ve jotted down a few notes on the simple maths behind ParaGopher for anyone
+  curious.
+
+  <h4>Rotating and drawing the turret barrel</h4>
+  When drawing the turret barrel, the code rotates it around its center before positioning it on the screen:
+
+  <pre><code>op.GeoM.Translate(-barrelW/2.0, -barrelH/2.0) // Move the barrel origin to its center
+op.GeoM.Rotate(g.barrelAngle * math.Pi / 180)
+op.GeoM.Translate(centerX, centerY)</code></pre>
+
+  <h4>Finding the bullet's spawn position (tip of the barrel)</h4>
+  When you press shoot, the game creates a bullet at the tip of the barrel. The code first identifies a local offset in
+  the barrel’s coordinate system—something like:
+  <pre><code>localTipX := width / 2 // half of the base width
+localTipY := width / 12</code></pre>
+  Then it rotates these local coordinates by the turret’s angle to get the world position of the tip:
+  <pre><code>dx := float64(localTipX - width/2)
+dy := float64(localTipY - width/2)
+
+rx := float32(dx*math.Cos(angleRadians) - dy*math.Sin(angleRadians))
+ry := float32(dx*math.Sin(angleRadians) + dy*math.Cos(angleRadians))
+
+tipX := barrelCircleX + rx
+tipY := barrelCircleY + ry</code></pre>
+  Here <code>(dx, dy)</code> is the local offset from the pivot. The standard 2D rotation formulae are $$
+  \left.\begin{array}{l} x' = x\cos(\theta) - y\sin(\theta), \\ y' = x\sin(\theta) + y\cos(\theta), \end{array}\right\}
+  $$ where $\theta$ is the rotation angle in radians.
+
+  <h4>Computing bullet's velocity components</h4>
+
+  Once the bullet's initial position <code>(tipX, tipY)</code> is known, its velocity <code>(vx, vy)</code>
+  depends on the turret's angle and a speed constant:
+
+  <pre><code>realAngleRadians := (90.0 - g.barrelAngle) * math.Pi / 180.0
+vx := float32(config.BulletSpeed * math.Cos(realAngleRadians))
+vy := -float32(config.BulletSpeed * math.Sin(realAngleRadians))</code></pre>
+
+  Notice the <code>(90.0 - barrelAngle)</code> logic. This is because in normal world maths angle $0$ means pointing
+  along the positive $x$-axis but here it is actually 'straight up', so we're shifting the frame of reference so that
+  $0$ means <b>up</b> in the game world. Finally, the screen's $y$-axis is growing downwards, hence the negative sign in
+  front of the expression for <code>vy</code>.
+
+  <h4>Updating bullet's position (basic kinematics)</h4>
+  On every frame, each bullet’s position is updated by adding the velocity:
+  <pre><code>b.x += b.vx
+b.y += b.vy</code></pre>
+  This is effectively $$ \left.\begin{array}{l} x \leftarrow x + v_x, \\ y \leftarrow y + v_y \end{array}\right\} $$
+  (which is the simplest form of motion at a constant velocity). If a bullet goes off-screen or hits a target, it’s
+  removed from the game.
+
+  <h4>Collision checks</h4>
+
+  The code for detecting collisions just checks if the two rectangles—one around the bullet, one around the
+  target—overlap. If they do, the bullet is marked as hitting the target. That’s pretty much the whole idea—after that,
+  it’s just pressing buttons with your fingers!
+</div>
