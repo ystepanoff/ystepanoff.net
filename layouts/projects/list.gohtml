@@ -12,7 +12,13 @@
       {{ $img = $img.Fill "150x113 Center webp" }}
       <img class="project-image" src="{{ $img.Permalink }}" alt="{{ .Title }}" />
       <div class="project-content">
-        {{ if .Param "href" }}
+        {{ if .Param "usePermalink" }}
+            {{ $target := "_blank" }}
+            {{ if .Param "target" }}
+                {{ $target = .Params.target }}
+            {{ end }}
+            <h3><a href="{{ .Permalink<D-s> }}" target="{{ $target }}">{{ .Title }}</a></h3>
+        {{ else if .Param "href" }}
             {{ $target := "_blank" }}
             {{ if .Param "target" }}
                 {{ $target = .Params.target }}
