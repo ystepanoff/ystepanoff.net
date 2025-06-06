@@ -120,7 +120,7 @@ p {
 }
 
 .project-content {
-  float: None;
+  float: left;
   overflow: hidden;
   flex: 1;
 }
