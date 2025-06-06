@@ -9,7 +9,6 @@
     {{ range .Pages.ByWeight.Reverse }}
     <div class="project-item">
       {{ $img := resources.Get .Params.image }}
-      {{ $img = $img.Resize "200x150 Center Lanczos" }}
       <img class="project-image" src="{{ $img.Permalink }}" alt="{{ .Title }}" />
       <div class="project-content">
         {{ if .Param "usePermalink" }}
