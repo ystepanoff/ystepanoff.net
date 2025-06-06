@@ -105,7 +105,7 @@ p {
 
 .project-item {
   display: flex;
-  /*align-items: flex-start;*/
+  align-items: flex-start;
   gap: 1rem;
 }
 
@@ -116,10 +116,13 @@ p {
   border: 2px solid;
   border-color: #454545;
   object-fit: cover;
+  float: left;
 }
 
 .project-content {
-  flex: 2;
+  float: None;
+  overflow: hidden;
+  flex: 1;
 }
 
 .project-content h3 {
