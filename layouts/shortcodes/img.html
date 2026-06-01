@@ -1,3 +1,15 @@
-{{- $imagePath := .Get "path" -}} {{- $altText := .Get "alt" | default "Image" -}}
+{{- $imagePath := .Get "path" -}}
+{{- $altText := .Get "alt" | default "Image" -}}
 {{- $image := resources.Get $imagePath -}}
-<img src="{{ $image.Permalink }}" alt="{{ $altText }}" />
+{{- if $image -}}
+  {{- /* Cap the rendered width, downscale large originals, and serve WebP. */ -}}
+  {{- $maxWidth := 1000 -}}
+  {{- if gt $image.Width $maxWidth -}}
+    {{- $image = $image.Resize (printf "%dx webp q85" $maxWidth) -}}
+  {{- else -}}
+    {{- $image = $image.Process "webp q85" -}}
+  {{- end -}}
+  <img src="{{ $image.RelPermalink }}" alt="{{ $altText }}" width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async" />
+{{- else -}}
+  {{- errorf "img shortcode: image not found at path %q" $imagePath -}}
+{{- end -}}

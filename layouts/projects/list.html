@@ -9,7 +9,8 @@
     {{ range .Pages.ByWeight.Reverse }}
     <div class="project-item">
       {{ $img := resources.Get .Params.image }}
-      <img class="project-image" src="{{ $img.Permalink }}" alt="{{ .Title }}" />
+      {{ if gt $img.Width 600 }}{{ $img = $img.Resize "600x webp q85" }}{{ else }}{{ $img = $img.Process "webp q85" }}{{ end }}
+      <img class="project-image" src="{{ $img.RelPermalink }}" alt="{{ .Title }}" width="{{ $img.Width }}" height="{{ $img.Height }}" loading="lazy" decoding="async" />
       <div class="project-content">
         {{ if .Param "usePermalink" }}
             {{ $target := "_blank" }}

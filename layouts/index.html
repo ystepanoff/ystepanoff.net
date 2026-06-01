@@ -1,5 +1,7 @@
 {{ define "main" }}
-    <img src="/images/avatar.jpg" alt="Avatar" class="avatar centered" />
+    {{ $avatar := resources.Get "images/avatar.jpg" }}
+    {{ $avatar = $avatar.Resize "320x webp q85" }}
+    <img src="{{ $avatar.RelPermalink }}" alt="Avatar" width="{{ $avatar.Width }}" height="{{ $avatar.Height }}" class="avatar centered" />
 
     <div class="centered">
         <a id="atLink" href="" class="iconLink">{{ partial "icons/icon" (dict "vendor" "font-awesome-solid" "name" "at" "size" "1.5em") }}</a>
